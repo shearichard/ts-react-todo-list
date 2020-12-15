@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TodoList } from './TodoList';
+import { AddTodoForm } from './AddTodoForm';
 
 
 const initialTodos: Todo[] = [
@@ -34,7 +35,13 @@ function App() {
     setTodos(newTodos);
   };
 
- return <TodoList todos={todos} toggleTodo={toggleTodo} />;
+ return( 
+    <>
+        <TodoList todos={todos} toggleTodo={toggleTodo} />;
+        <AddTodoForm />
+    </>
+    );
+
 
 }
 
