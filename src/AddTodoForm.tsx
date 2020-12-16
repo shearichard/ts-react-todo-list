@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button, TextInput } from "grommet";
 
 interface Props {
     addTodo: AddTodo;
@@ -20,23 +21,24 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
 
   return (
     <form>
-      <input 
-        type="text" 
-        value={text}
+    <TextInput
+      placeholder="type here"
+      value={text}
         onChange={e => {
             setText(e.target.value);
         }}
-      />
-      <button 
+    />
+      <Button 
+        gap="medium"
+        label="Add Todo"
+        primary
         type="submit"
         onClick={e => {
           e.preventDefault();
           addTodo(text);
           setText('');
         }}
-      >
-        Add Todo
-      </button>
+      />
     </form>
   );
 };
